@@ -29,19 +29,19 @@ sigma = 2;
 y = @(t) exp(-sigma*t).*cos(omega*t);
 f = @(t) 1 - exp(-sigma*t).*cos(2*omega*t);
 
-% figure; 
-% hold on; 
-% box on; 
-% grid on; 
-% plot(t, y(t), 'b')
-% plot(t, exp(-sigma*t), 'r')
-% plot(t, .2*cos(omega*t), 'k')
-% legend({'Reponse', 'Decay Envelope', 'Oscillation'})
-% xlabel('Time (s)', 'FontSize', 15);
-% ylabel('System Output', 'FontSize', 15);
-% set(gca, 'FontSize', 15);
-% xlim([0, pi]);
-% ylim([-0.3, 1]);
+figure; 
+hold on; 
+box on; 
+grid on; 
+plot(t, y(t), 'b')
+plot(t, exp(-sigma*t), 'r')
+plot(t, .2*cos(omega*t), 'k')
+legend({'Reponse', 'Decay Envelope', 'Oscillation'})
+xlabel('Time (s)', 'FontSize', 15);
+ylabel('System Output', 'FontSize', 15);
+set(gca, 'FontSize', 15);
+xlim([0, pi]);
+ylim([-0.3, 1]);
 
 figure; 
 hold on; 
