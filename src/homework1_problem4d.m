@@ -21,38 +21,15 @@
 % SOFTWARE.
 clc;
 clear;
-close all;
+close all; 
 
-t = 0:0.02:4; 
-omega = 3; 
-sigma = 2; 
-y = @(t) exp(-sigma*t).*cos(omega*t);
-f = @(t) 1 - exp(-sigma*t).*cos(2*omega*t);
-
-figure; 
-hold on; 
-box on; 
-grid on; 
-plot(t, y(t), 'b')
-plot(t, exp(-sigma*t), 'r')
-plot(t, .2*cos(omega*t), 'k')
-legend({'Reponse', 'Decay Envelope', 'Oscillation'})
-xlabel('Time (s)', 'FontSize', 15);
-ylabel('System Output', 'FontSize', 15);
-set(gca, 'FontSize', 15);
-xlim([0, pi]);
-ylim([-0.3, 1]);
-
-figure; 
-hold on; 
-box on; 
-grid on; 
-plot(t, f(t), 'b')
-plot(t, 1+exp(-sigma*t), 'r')
-plot(t, 1-exp(-sigma*t), 'r')
-xlim([0, 2.5]);
-legend({'Reponse', 'Decay Envelope'})
-xlabel('Time (s)', 'FontSize', 15);
-ylabel('System Output', 'FontSize', 15);
-set(gca, 'FontSize', 15);
-
+% define the linear system 
+A = [
+    [18, 0, 0, 0];
+    [21, 9, 6, 2];
+    [8, 6, 5, 1];
+    [1, 1, 1, 0];
+];
+b = [10; 0; 0; 0];
+% solve the linear system 
+sln = A\b;           % same as inv(A)*b
