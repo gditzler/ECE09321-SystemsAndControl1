@@ -27,7 +27,7 @@ close all;
 step = 5; 
 % define the system function  
 G = tf([1, 0], [1, 12, 32]); 
-% define the step function 
+% define the ramp function 
 S = tf(1, [1, 0, 0]);
 % Y = G*S; 
 Y = series(G, S);
