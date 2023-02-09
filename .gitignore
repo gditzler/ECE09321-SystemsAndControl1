@@ -2,13 +2,15 @@
 *.asv 
 
 # labs 
-labs/SysConLab1.mlx
-labs/SysConLab2.mlx
-labs/SysConLab3.mlx
-labs/SysConLab4.mlx
+#labs/SysConLab1.mlx
+#labs/SysConLab2.mlx
+#labs/SysConLab3.mlx
+#labs/SysConLab4.mlx
 labs/SysConLab5.mlx
 labs/SysConLab6.mlx
 labs/SysConLab7.mlx
 labs/SysConLab8.mlx
+
+src/ece09312_exam_grades.m
 
 
