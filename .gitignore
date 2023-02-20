@@ -1,5 +1,6 @@
 # files 
 *.asv 
+.DS_Store 
 
 # labs 
 #labs/SysConLab1.mlx
