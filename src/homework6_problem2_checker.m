@@ -25,24 +25,31 @@ clear;
 close all; 
 
 % EXAMPLE SOLUTION 
-% s = -0.5;
-% K = abs(s+22)*abs(s^2-1)*abs(s+5)/(50*abs(s+1))
+% K = 14
 % z = -1; 
-% p = -22; 
+% p = -60.29; 
 
-K = -.0375; 
-z = -5; 
-p = -3; 
+K = 14; 
+z = -1; 
+p = -60.29; 
 
-G = zpk([], [1, -1, -5], 50);
+G = zpk([], [0, -1, -2], 10);
 C = zpk(z, p, K);
 T = feedback(minreal(G*C), 1);
 pole_T = pole(T); 
 
 design_spec = false; 
+zeta = sqrt(log(.1)^2/(pi^2+log(.1)^2));
+angle = acosd(zeta); 
+
 for i = 1:numel(pole_T)
-    if abs(abs(pole_T(i))- .5) <= 0.01
-        design_spec = true; 
+    if abs(real(pole_T(i))+1) <= 0.05
+        pole_angle = atand(abs(imag(pole_T(i)))/abs(real(pole_T(i)))); 
+        if pole_angle < angle
+            design_spec = true; 
+        else
+            disp(['True Angle (', num2str(angle), '; Pole Angle (', num2str(pole_angle), ')'])
+        end
     end
 end
 

@@ -26,22 +26,22 @@ close all;
 
 % EXAMPLE SOLUTION 
 % s = -0.5;
-% K = abs(s+22)*abs(s^2-1)*abs(s+5)/(50*abs(s+1))
+% K = 240
 % z = -1; 
-% p = -22; 
+% p = -10; 
 
-K = -.0375; 
-z = -5; 
-p = -3; 
+K = 240; 
+z = -1; 
+p = -10; 
 
-G = zpk([], [1, -1, -5], 50);
+G = zpk([], [1, -1], 1/10);
 C = zpk(z, p, K);
 T = feedback(minreal(G*C), 1);
 pole_T = pole(T); 
 
 design_spec = false; 
 for i = 1:numel(pole_T)
-    if abs(abs(pole_T(i))- .5) <= 0.01
+    if abs(real(pole_T(i))+2) <= 0.01
         design_spec = true; 
     end
 end
