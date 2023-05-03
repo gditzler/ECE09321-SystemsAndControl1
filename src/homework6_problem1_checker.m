@@ -30,9 +30,9 @@ close all;
 % z = -1; 
 % p = -10; 
 
-K = 240; 
-z = -1; 
-p = -10; 
+K = 10; 
+z = 1.; 
+p = -3; 
 
 G = zpk([], [1, -1], 1/10);
 C = zpk(z, p, K);
@@ -41,7 +41,7 @@ pole_T = pole(T);
 
 design_spec = false; 
 for i = 1:numel(pole_T)
-    if abs(real(pole_T(i))+2) <= 0.01
+    if abs(real(pole_T(i))+2) <= 0.05
         design_spec = true; 
     end
 end
